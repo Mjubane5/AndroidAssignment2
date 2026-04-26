@@ -2,34 +2,44 @@ package com.example.textbookmarketplace;
 
 public class Textbook extends MarketplaceItem implements Sellable {
 
+    private String sellerName;
     private double price;
-    private int stockCount = 1; // Assuming 1 copy being sold by default
+    private int stockCount;
+    private String bankingInfo;
 
-    // The Constructor: This is called when you hit the "Post" button
-    public Textbook(String title, double price) {
-        super(title); // This now works because MarketplaceItem exists!
+    // Upgraded Constructor: Now it asks for all the Assignment 2 requirements
+    public Textbook(String sellerName, String title, int stockCount, double price, String bankingInfo) {
+        super(title);
+        this.sellerName = sellerName;
+        this.stockCount = stockCount;
         this.price = price;
+        this.bankingInfo = bankingInfo;
     }
 
-    // Fulfilling the rule from the MarketplaceItem abstract class
+    // New Getters so the Search screen can find books by Seller Name
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public String getBankingInfo() {
+        return bankingInfo;
+    }
+
     @Override
     public void displayItemDetails() {
-        System.out.println("Textbook: " + getTitle() + " | Price: R" + price);
+        System.out.println("Seller: " + sellerName + " | Textbook: " + getTitle() + " | Price: R" + price + " | Copies: " + stockCount);
     }
 
-    // Fulfilling the first rule from Abahle's Sellable interface
     @Override
     public double getPrice() {
         return this.price;
     }
 
-    // Fulfilling the second rule from Abahle's Sellable interface
     @Override
     public int getStockCount() {
         return this.stockCount;
     }
 
-    // Fulfilling the final missing rule from Abahle's Sellable interface
     @Override
     public void decreaseStock(int amount) {
         if (this.stockCount >= amount) {
