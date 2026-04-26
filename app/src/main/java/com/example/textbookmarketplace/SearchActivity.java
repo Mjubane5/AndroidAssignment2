@@ -24,23 +24,29 @@ public class SearchActivity extends AppCompatActivity {
                 String query = etSearchQuery.getText().toString().toLowerCase().trim();
                 StringBuilder results = new StringBuilder();
 
-                // DIAGNOSTIC CHECK: Is the memory totally empty?
                 if (Inventory.textbookList.isEmpty()) {
-                    tvSearchResults.setText("ERROR: The inventory memory is completely empty! The books are not saving.");
+                    tvSearchResults.setText("The marketplace is currently empty. Add some books first!");
                     return;
                 }
 
-                // Loop through the global inventory list
+                // Loop through the inventory
                 for (Textbook book : Inventory.textbookList) {
-                    // If the box is blank OR if it matches the search, show it
-                    if (query.isEmpty() || book.getTitle().toLowerCase().contains(query)) {
-                        results.append("Found: ").append(book.getTitle())
-                                .append(" - R").append(book.getPrice()).append("\n\n");
+                    // ⭐ RUBRIC REQUIREMENT: Search by Title OR Seller Name
+                    if (query.isEmpty() ||
+                            book.getTitle().toLowerCase().contains(query) ||
+                            book.getSellerName().toLowerCase().contains(query)) {
+
+                        // Display all the Assignment 2 details
+                        results.append("📚 Title: ").append(book.getTitle()).append("\n")
+                                .append("👤 Seller: ").append(book.getSellerName()).append("\n")
+                                .append("💰 Price: R").append(book.getPrice()).append("\n")
+                                .append("📦 Copies Available: ").append(book.getStockCount()).append("\n")
+                                .append("🏦 Banking Info: ").append(book.getBankingInfo()).append("\n\n");
                     }
                 }
 
                 if (results.length() == 0) {
-                    tvSearchResults.setText("Books are in memory, but no match found for: '" + query + "'");
+                    tvSearchResults.setText("No textbooks or sellers found matching: '" + query + "'");
                 } else {
                     tvSearchResults.setText(results.toString());
                 }
