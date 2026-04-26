@@ -20,5 +20,11 @@
         android:layout_height="60dp"
         android:text="Add a New Textbook"
         android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btnGoToSearch"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Search Inventory"/>
 
 </LinearLayout>

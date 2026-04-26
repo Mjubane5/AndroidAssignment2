@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddBookActivity" />
+        <activity android:name=".SearchActivity" />
     </application>
 
 </manifest>

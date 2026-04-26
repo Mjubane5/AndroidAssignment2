@@ -11,18 +11,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // This links to Lugayeni's visual design
         setContentView(R.layout.activity_main);
 
-        // Find the button we created in the XML
+        // Find both buttons on the main screen
         Button btnAddBook = findViewById(R.id.btnAddBook);
+        Button btnGoToSearch = findViewById(R.id.btnGoToSearch); // Our new button!
 
-        // Tell the button what to do when clicked
+        // Navigation for adding a book
         btnAddBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // The "Intent" to move from MainActivity to AddBookActivity
                 Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Navigation for searching the inventory
+        btnGoToSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(intent);
             }
         });
