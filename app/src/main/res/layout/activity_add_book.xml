@@ -8,30 +8,56 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sell a Textbook"
+        android:text="Post a Textbook"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
     <EditText
+        android:id="@+id/etSellerName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your Name (Seller)"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
         android:id="@+id/etBookTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Book Title (e.g. Calculus 8th Ed)"
+        android:hint="Textbook Title"
+        android:inputType="text"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/etStockCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number of Copies"
+        android:inputType="number"
         android:layout_marginBottom="10dp"/>
 
     <EditText
         android:id="@+id/etBookPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Price (ZAR)"
+        android:hint="Price (R)"
         android:inputType="numberDecimal"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:id="@+id/etBankingInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Banking Details (e.g., FNB or Capitec Acc)"
+        android:inputType="text"
         android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/btnSaveBook"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Post Textbook for Sale"/>
+        android:text="Post Textbook for Sale"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>
