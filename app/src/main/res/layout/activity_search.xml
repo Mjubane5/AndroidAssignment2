@@ -1,37 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="24dp"
+    android:background="#0F172A">
 
+    <!-- Header -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find a Textbook"
-        android:textSize="24sp"
+        android:text="Search the Forum"
+        android:textSize="28sp"
+        android:textColor="#F8FAFC"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="24dp"/>
 
+    <!-- The Search Bar -->
     <EditText
         android:id="@+id/etSearchQuery"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Type book title here..."
-        android:layout_marginBottom="10dp"/>
+        android:layout_height="60dp"
+        android:hint="Search by Title or Seller Name"
+        android:textColorHint="#94A3B8"
+        android:textColor="#F8FAFC"
+        android:backgroundTint="#00E5FF"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="16dp"/>
 
+    <!-- Search Button -->
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Search Inventory"
-        android:layout_marginBottom="20dp"/>
+        android:layout_height="65dp"
+        android:text="Find Listings"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#0F172A"
+        android:backgroundTint="#00E5FF"
+        app:cornerRadius="12dp"
+        android:layout_marginBottom="24dp"/>
 
+    <!-- Results Area Header -->
     <TextView
-        android:id="@+id/tvSearchResults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Results"
         android:textSize="18sp"
-        android:text="Results will appear here."/>
+        android:textColor="#00E5FF"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Scrollable Results Box -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1E293B"
+        android:padding="16dp"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/tvSearchResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F8FAFC"
+            android:textSize="16sp"
+            android:text="Your search results will appear here..."/>
+
+    </ScrollView>
 
 </LinearLayout>
