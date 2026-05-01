@@ -1,63 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="24dp"
+    android:background="#0F172A">
 
+    <!-- Header -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Post a Textbook"
-        android:textSize="24sp"
+        android:text="New Discussion / Listing"
+        android:textSize="28sp"
+        android:textColor="#F8FAFC"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="24dp"/>
 
+    <!-- Seller Name (Alias) -->
     <EditText
         android:id="@+id/etSellerName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Your Name (Seller)"
+        android:layout_height="55dp"
+        android:hint="Your Alias (Seller Name)"
+        android:textColorHint="#94A3B8"
+        android:textColor="#F8FAFC"
+        android:backgroundTint="#00E5FF"
         android:inputType="textPersonName"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="12dp"/>
 
+    <!-- Book Title -->
     <EditText
         android:id="@+id/etBookTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:hint="Textbook Title"
+        android:textColorHint="#94A3B8"
+        android:textColor="#F8FAFC"
+        android:backgroundTint="#00E5FF"
         android:inputType="text"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="12dp"/>
 
+    <!-- Number of Copies -->
     <EditText
         android:id="@+id/etStockCount"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Number of Copies"
+        android:layout_height="55dp"
+        android:hint="Copies Available"
+        android:textColorHint="#94A3B8"
+        android:textColor="#F8FAFC"
+        android:backgroundTint="#00E5FF"
         android:inputType="number"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="12dp"/>
 
+    <!-- Price -->
     <EditText
         android:id="@+id/etBookPrice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Price (R)"
+        android:layout_height="55dp"
+        android:hint="Price (ZAR)"
+        android:textColorHint="#94A3B8"
+        android:textColor="#F8FAFC"
+        android:backgroundTint="#00E5FF"
         android:inputType="numberDecimal"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="12dp"/>
 
+    <!-- Banking Information -->
     <EditText
         android:id="@+id/etBankingInfo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Banking Details (e.g., FNB or Capitec Acc)"
+        android:layout_height="55dp"
+        android:hint="Banking Info (e.g., Capitec/FNB)"
+        android:textColorHint="#94A3B8"
+        android:textColor="#F8FAFC"
+        android:backgroundTint="#00E5FF"
         android:inputType="text"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="32dp"/>
 
+    <!-- Submit Button -->
     <Button
         android:id="@+id/btnSaveBook"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Post Textbook for Sale"
-        android:layout_marginBottom="10dp"/>
+        android:layout_height="65dp"
+        android:text="Post to Forum"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#0F172A"
+        android:backgroundTint="#00E5FF"
+        app:cornerRadius="12dp"/>
 
 </LinearLayout>
