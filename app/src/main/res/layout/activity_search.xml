@@ -55,6 +55,18 @@
         app:cornerRadius="12dp"
         android:layout_marginBottom="24dp"
         android:visibility="gone"/>
+    <Button
+        android:id="@+id/btnDeleteListing"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="Delete Listing (Mark as Sold)"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#D32F2F"
+        app:cornerRadius="12dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"/>
 
     <!-- Results Area Header -->
     <TextView

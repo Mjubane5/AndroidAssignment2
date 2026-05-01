@@ -1,49 +1,28 @@
 package com.example.textbookmarketplace;
 
-public class Textbook extends MarketplaceItem implements Sellable {
-
+public class Textbook {
+    private int id;
+    private String title;
     private String sellerName;
     private double price;
     private int stockCount;
     private String bankingInfo;
 
-    // Upgraded Constructor: Now it asks for all the Assignment 2 requirements
-    public Textbook(String sellerName, String title, int stockCount, double price, String bankingInfo) {
-        super(title);
+    // Constructor with 6 parameters (ID + 5 details)
+    public Textbook(int id, String title, String sellerName, double price, int stockCount, String bankingInfo) {
+        this.id = id;
+        this.title = title;
         this.sellerName = sellerName;
-        this.stockCount = stockCount;
         this.price = price;
+        this.stockCount = stockCount;
         this.bankingInfo = bankingInfo;
     }
 
-    // New Getters so the Search screen can find books by Seller Name
-    public String getSellerName() {
-        return sellerName;
-    }
-
-    public String getBankingInfo() {
-        return bankingInfo;
-    }
-
-    @Override
-    public void displayItemDetails() {
-        System.out.println("Seller: " + sellerName + " | Textbook: " + getTitle() + " | Price: R" + price + " | Copies: " + stockCount);
-    }
-
-    @Override
-    public double getPrice() {
-        return this.price;
-    }
-
-    @Override
-    public int getStockCount() {
-        return this.stockCount;
-    }
-
-    @Override
-    public void decreaseStock(int amount) {
-        if (this.stockCount >= amount) {
-            this.stockCount -= amount;
-        }
-    }
+    // Getters
+    public int getId() { return id; }
+    public String getTitle() { return title; }
+    public String getSellerName() { return sellerName; }
+    public double getPrice() { return price; }
+    public int getStockCount() { return stockCount; }
+    public String getBankingInfo() { return bankingInfo; }
 }

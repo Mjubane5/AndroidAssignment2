@@ -52,7 +52,8 @@ public class AddBookActivity extends AppCompatActivity {
                     int stockCount = Integer.parseInt(stockString);
                     double price = Double.parseDouble(priceString);
 
-                    Textbook newBook = new Textbook(sellerName, title, stockCount, price, bankingInfo);
+                   
+                    Textbook newBook = new Textbook(0, title, sellerName, price, stockCount, bankingInfo);
 
                     boolean isInserted = db.addTextbook(newBook);
 
