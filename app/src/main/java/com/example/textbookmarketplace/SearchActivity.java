@@ -44,12 +44,16 @@ public class SearchActivity extends AppCompatActivity {
                 }
 
                 for (Textbook book : currentInventory) {
-                    if (query.isEmpty() || book.getTitle().toLowerCase().contains(query)) {
+                    // This checks BOTH the title and the seller name for your query
+                    if (query.isEmpty() ||
+                            book.getTitle().toLowerCase().contains(query) ||
+                            book.getSellerName().toLowerCase().contains(query)) {
+
                         results.append("📚 Title: ").append(book.getTitle()).append("\n")
                                 .append("👤 Seller: ").append(book.getSellerName()).append("\n")
                                 .append("💰 Price: R").append(book.getPrice()).append("\n\n");
 
-                        currentFoundBookId = book.getId(); // Capture the ID
+                        currentFoundBookId = book.getId();
                     }
                 }
 

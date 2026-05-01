@@ -58,12 +58,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 list.add(new Textbook(
-                        cursor.getInt(0),    // id
-                        cursor.getString(1), // title
-                        cursor.getString(2), // seller
-                        cursor.getDouble(3), // price
-                        cursor.getInt(4),    // stock
-                        cursor.getString(5)  // banking
+                        cursor.getInt(0),    // ID
+                        cursor.getString(1), // THIS MUST BE TITLE
+                        cursor.getString(2), // THIS MUST BE SELLER
+                        cursor.getDouble(3), // Price
+                        cursor.getInt(4),    // Stock
+                        cursor.getString(5)  // Banking
                 ));
             } while (cursor.moveToNext());
         }
