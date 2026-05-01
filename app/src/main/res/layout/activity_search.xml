@@ -42,6 +42,19 @@
         android:backgroundTint="#00E5FF"
         app:cornerRadius="12dp"
         android:layout_marginBottom="24dp"/>
+    <!-- WhatsApp / Share Integration Button (Hidden by default) -->
+    <Button
+        android:id="@+id/btnShareWhatsApp"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:text="Share to WhatsApp / SMS"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#25D366"
+        app:cornerRadius="12dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"/>
 
     <!-- Results Area Header -->
     <TextView
