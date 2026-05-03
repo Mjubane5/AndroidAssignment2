@@ -1,58 +1,46 @@
-# 📚 University of Fort Hare Textbook Marketplace
+# 🎓 UFH Student Resource Hub
 **Module: CSC 313 - Mobile Application Development**
 
-## 📖 Project Overview
-A robust, decentralized marketplace application designed to facilitate the exchange of academic resources within the University of Fort Hare (UFH) community. The platform allows students to list, manage, and discover textbooks through a high-performance local database system, ensuring academic resources remain accessible and affordable.
+## 🚨 The Problem Statement
+University students constantly need to exchange academic resources—whether that means buying and selling second-hand textbooks, sharing study guides, or finding peer tutors. However, traditional campus notice boards are outdated, and broad social media groups are cluttered and distracting. Students lack a centralized, localized platform that allows them to quickly find specific academic resources on campus and instantly connect with their peers to organize the exchange. 
 
----
-
-## 🛠️ Technical Specifications
-*   **Language:** Java (Android SDK)
-*   **Database:** SQLite (Relational Data Persistence)
-*   **Architecture:** Model-View-Controller (MVC)
-*   **Minimum SDK:** Android 10+ (API 29)
-*   **Testing Hardware:** Validated on **Samsung Galaxy S24 Ultra** and **Dell Latitude 5330**.
+## 💡 Project Overview
+The UFH Student Resource Hub is a lightweight, easy-to-use Android application built to solve this communication gap. It acts as a digital campus board where students can list academic materials or study topics. Instead of relying on complex built-in messaging, the app intelligently bridges the gap by routing users directly to WhatsApp, allowing students to seamlessly arrange meetups or resource exchanges using the tools they already use every day.
 
 ---
 
 ## 🚀 Key Features
-*   **Permanent Data Persistence:** Utilizes a custom `DatabaseHelper` to manage a local SQLite instance for long-term storage of listings.
-*   **Full CRUD Lifecycle:** 
-    *   **Create:** Dynamic listing creation via `AddBookActivity`.
-    *   **Read:** Intelligent search querying through `SearchActivity`.
-    *   **Update/Delete:** Integrated functionality to remove sold listings and update stock.
-*   **Inter-App Communication:** Implements **Implicit Intents** to facilitate instant buyer-seller communication via WhatsApp and other system-level sharing tools.
+*   **Create Resource Listings:** Students can easily post items, topics, or resources they have available, along with essential details.
+*   **Smart Discovery Search:** A built-in search engine allows students to quickly find what they need by searching either the resource name (e.g., "Calculus Textbook") or the student's name.
+*   **One-Click WhatsApp Connection:** When a student finds a resource they need, a single tap packages the information and opens a direct WhatsApp chat with the poster to finalize the details.
+*   **Offline Reliability (Local Storage):** The app uses a local database (SQLite) to safely save all posts and information directly on the phone, meaning it works quickly and remembers data even if the app is closed.
+*   **Easy Inventory Management:** Users can delete or remove listings once an exchange is completed to keep the platform clean and up to date.
 
 ---
 
-## 👥 Team & Role Assignments
+## 👥 Meet the Development Team
 
-| Name | Role | Core Responsibilities |
+| Name | Role | What They Did |
 | :--- | :--- | :--- |
-| **Lugayeni** | **Database Architect** | Developed the `DatabaseHelper` schema, managed SQLite versioning, and implemented core CRUD methods. |
-| **Abahle** | **UI/UX & Logic Developer** | Designed the activity layouts and implemented the data validation logic for the listing entry system. |
-| **Kamva** | **Integration Specialist** | Developed the search filtering algorithms and managed the Android Intent system for external sharing. |
-| **Mpilwenhle** | **Quality Assurance (QA)** | Conducted extensive hardware testing on the S24 Ultra and managed unit testing for database operations. |
-| **Ovayo** | **Documentation Lead** | Managed technical writing, repository documentation, and structured the final project report. |
-| **Sisanda** | **Systems Analyst** | Defined functional requirements and ensured all module-specific rubric criteria were satisfied. |
+| **Lugayeni** | **Database Lead** | Built the local storage system so the app securely remembers all posts and user data. |
+| **Abahle** | **UI & Logic Developer** | Designed the user interface screens and made sure the app handles user input smoothly. |
+| **Kamva** | **Integration Lead** | Created the search functionality and built the bridge that connects the app directly to WhatsApp. |
+| **Mpilwenhle** | **Quality Assurance (QA)** | Tested the app extensively on real hardware to catch bugs and ensure smooth performance. |
+| **Ovayo** | **Documentation Lead** | Wrote the project report, managed the codebase notes, and structured the final presentation. |
+| **Sisanda** | **Systems Analyst** | Tracked the assignment rubric to ensure every feature perfectly matched the CSC 313 requirements. |
 
 ---
 
-## 📁 Project Roadmap
-*   **Phase 1:** UI Prototyping & Package Structuring.
-*   **Phase 2:** SQLite Schema Design and Model (`Textbook.java`) implementation.
-*   **Phase 3:** Search logic optimization and Intent integration.
-*   **Phase 4:** Final QA and performance testing on high-end hardware.
+## 🛠️ How It Was Built (The Tech)
+*   **Language:** Java
+*   **Development Environment:** Android Studio
+*   **Data Storage:** SQLite (Local Database)
+*   **External Integration:** Android Implicit Intents (for WhatsApp routing)
 
 ---
 
-## ⚙️ Setup & Installation
-1. Clone the repository to your local environment.
-2. Open the project in **Android Studio**.
-3. Ensure the `src/main/java` pathing is correctly indexed.
-4. Build and deploy to a physical device or emulator.
-
----
-
-## 🛡️ Security & Scalability
-Developed with a cybersecurity-conscious mindset, the app ensures local data integrity through controlled database access patterns. Future iterations aim to implement encrypted banking information fields and cloud-based authentication.
+## ⚙️ How to Run the App
+1. Download or clone the project folder to your computer.
+2. Open the folder using **Android Studio**.
+3. Let the system sync and build the files.
+4. Press "Run" to launch the application on an Android emulator or a connected physical phone.
