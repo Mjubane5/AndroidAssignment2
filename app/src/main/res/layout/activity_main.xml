@@ -4,71 +4,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="24dp"
-    android:background="#0F172A"
-    android:gravity="center">
-
-    <!-- Cyan Accent Line -->
-    <View
-        android:layout_width="80dp"
-        android:layout_height="4dp"
-        android:background="#00E5FF"
-        android:layout_marginBottom="16dp"/>
+    android:background="@color/background_dark">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Textbook"
-        android:textSize="36sp"
-        android:textColor="#F8FAFC"
+        android:text="ResourceHub ✨"
+        android:textSize="45sp"
         android:textStyle="bold"
-        android:gravity="center"/>
-
-    <!-- The Forum Branding -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Exchange Forum"
-        android:textSize="36sp"
-        android:textColor="#00E5FF"
-        android:textStyle="bold"
-        android:gravity="center"
+        android:textColor="@color/text_primary"
         android:layout_marginBottom="8dp"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Connect. Discuss. Trade."
-        android:textSize="14sp"
-        android:textColor="#94A3B8"
-        android:gravity="center"
-        android:layout_marginBottom="48dp"/>
+        android:textSize="18sp"
+        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="50dp"/>
 
-    <!-- The Primary Action Button -->
-    <Button
-        android:id="@+id/btnAddBook"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPostListing"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:text="Post New Listing"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#0F172A"
-        android:backgroundTint="#00E5FF"
-        android:layout_marginBottom="20dp"
-        app:cornerRadius="12dp"/>
+        app:cornerRadius="12dp"
+        app:backgroundTint="@color/accent_cyan"
+        android:textColor="@color/background_dark"
+        android:layout_marginBottom="16dp"/>
 
-    <!-- The Secondary Action Button -->
-    <Button
-        android:id="@+id/btnGoToSearch"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBrowseForum"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:text="Browse Forum"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#F8FAFC"
-        android:backgroundTint="#1E293B"
         app:cornerRadius="12dp"
-        app:strokeColor="#00E5FF"
-        app:strokeWidth="2dp"/>
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="@color/accent_cyan"
+        android:textColor="@color/accent_cyan"/>
 
 </LinearLayout>

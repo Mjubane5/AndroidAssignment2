@@ -21,8 +21,9 @@ public class Textbook {
     // Getters
     public int getId() { return id; }
     public String getTitle() { return title; }
-    public String getSellerName() { return sellerName; }
+    public String getSeller() { return sellerName; }
     public double getPrice() { return price; }
     public int getStockCount() { return stockCount; }
     public String getBankingInfo() { return bankingInfo; }
+
 }

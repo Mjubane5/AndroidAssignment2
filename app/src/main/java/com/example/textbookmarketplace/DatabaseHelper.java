@@ -42,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_TITLE, book.getTitle());
-        values.put(COL_SELLER, book.getSellerName());
+        values.put(COL_SELLER, book.getSeller());
         values.put(COL_PRICE, book.getPrice());
         values.put(COL_STOCK, book.getStockCount());
         values.put(COL_BANKING, book.getBankingInfo());

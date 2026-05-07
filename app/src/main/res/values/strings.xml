@@ -1,3 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Textbook Marketplace</string>
+
+    <string name="app_name">TextbookMarketplace</string>
+
+    <string-array name="category_array">
+        <item>📚 Textbooks &amp; Literature</item>
+        <item>💻 Tech &amp; Electronics</item>
+        <item>📐 Applied Math &amp; Science</item>
+        <item>📝 Study Notes &amp; Summaries</item>
+        <item>💡 Peer Tutoring</item>
+        <item>🏋️ Health &amp; Fitness</item>
+    </string-array>
+
 </resources>

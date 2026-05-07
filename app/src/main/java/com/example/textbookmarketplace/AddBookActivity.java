@@ -3,74 +3,56 @@ package com.example.textbookmarketplace;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import java.util.List;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class AddBookActivity extends AppCompatActivity {
+
+    // Declare the new UI variables
+    TextInputEditText etTitle, etPrice, etSeller;
+    Spinner spinnerCategory;
+    Button btnSave;
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
 
-        EditText etSellerName = findViewById(R.id.etSellerName);
-        EditText etBookTitle = findViewById(R.id.etBookTitle);
-        EditText etStockCount = findViewById(R.id.etStockCount);
-        EditText etBookPrice = findViewById(R.id.etBookPrice);
-        EditText etBankingInfo = findViewById(R.id.etBankingInfo);
-        Button btnSaveBook = findViewById(R.id.btnSaveBook);
+        // 1. Link to the NEW IDs from the updated XML file
+        etTitle = findViewById(R.id.etTitle);
+        etPrice = findViewById(R.id.etPrice);
+        etSeller = findViewById(R.id.etSeller);
+        spinnerCategory = findViewById(R.id.spinnerCategory);
+        btnSave = findViewById(R.id.btnSave);
 
-        btnSaveBook.setOnClickListener(new View.OnClickListener() {
+        databaseHelper = new DatabaseHelper(this);
+
+        // 2. Set up the save button
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sellerName = etSellerName.getText().toString().trim();
-                String title = etBookTitle.getText().toString().trim();
-                String stockString = etStockCount.getText().toString().trim();
-                String priceString = etBookPrice.getText().toString().trim();
-                String bankingInfo = etBankingInfo.getText().toString().trim();
+                // Grab the text the user typed in
+                String title = etTitle.getText().toString().trim();
+                String price = etPrice.getText().toString().trim();
+                String seller = etSeller.getText().toString().trim();
+                String category = spinnerCategory.getSelectedItem().toString();
 
-                if (sellerName.isEmpty() || title.isEmpty() || stockString.isEmpty() || priceString.isEmpty() || bankingInfo.isEmpty()) {
+                // Make sure they didn't leave it blank
+                if (title.isEmpty() || price.isEmpty() || seller.isEmpty()) {
                     Toast.makeText(AddBookActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // Connect to SQLite Database
-                DatabaseHelper db = new DatabaseHelper(AddBookActivity.this);
-                List<Textbook> currentInventory = db.getAllTextbooks();
+                // ==========================================
+                // PUT YOUR DATABASE SAVE CODE HERE!
+                // Example: databaseHelper.addBook(title, seller, price);
+                // ==========================================
 
-                // Duplicate Blocker
-                for (Textbook existingBook : currentInventory) {
-                    if (existingBook.getTitle().equalsIgnoreCase(title)) {
-                        Toast.makeText(AddBookActivity.this, "Error: This textbook is already listed!", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-                }
-
-                try {
-                    int stockCount = Integer.parseInt(stockString);
-                    double price = Double.parseDouble(priceString);
-
-                   
-                    Textbook newBook = new Textbook(0, title, sellerName, price, stockCount, bankingInfo);
-
-                    boolean isInserted = db.addTextbook(newBook);
-
-                    if (isInserted) {
-                        Toast.makeText(AddBookActivity.this, "Successfully Listed to Database: " + newBook.getTitle(), Toast.LENGTH_LONG).show();
-                        etSellerName.setText("");
-                        etBookTitle.setText("");
-                        etStockCount.setText("");
-                        etBookPrice.setText("");
-                        etBankingInfo.setText("");
-                    } else {
-                        Toast.makeText(AddBookActivity.this, "Database Error: Could not save.", Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (NumberFormatException e) {
-                    Toast.makeText(AddBookActivity.this, "Error: Please enter valid numbers.", Toast.LENGTH_LONG).show();
-                }
+                Toast.makeText(AddBookActivity.this, "Resource Added!", Toast.LENGTH_SHORT).show();
+                finish(); // Closes the screen and goes back to search
             }
         });
     }

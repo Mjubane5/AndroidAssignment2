@@ -1,102 +1,97 @@
 package com.example.textbookmarketplace;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.textfield.TextInputEditText;
 import java.util.List;
 
 public class SearchActivity extends AppCompatActivity {
 
-    private int currentFoundBookId = -1; // Tracks the ID for deletion
+    // 1. Declare all UI components here
+    RecyclerView recyclerView;
+    LinearLayout emptyStateLayout;
+    DatabaseHelper databaseHelper;
+    Button btnSearch;
+    TextInputEditText etSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        EditText etSearchQuery = findViewById(R.id.etSearchQuery);
-        Button btnSearch = findViewById(R.id.btnSearch);
-        Button btnShareWhatsApp = findViewById(R.id.btnShareWhatsApp);
-        Button btnDeleteListing = findViewById(R.id.btnDeleteListing);
-        TextView tvSearchResults = findViewById(R.id.tvSearchResults);
+        // 2. Link the variables to your XML IDs
+        recyclerView = findViewById(R.id.recyclerView);
+        emptyStateLayout = findViewById(R.id.emptyStateLayout);
+        btnSearch = findViewById(R.id.btnSearch);
+        etSearch = findViewById(R.id.etSearch);
+        databaseHelper = new DatabaseHelper(this);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // 3. Load all textbooks initially when the page opens
+        loadDataIntoView("");
+
+        // 4. Set up the new Search Button Click Event
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String query = etSearchQuery.getText().toString().toLowerCase().trim();
-                StringBuilder results = new StringBuilder();
+                // Grab the text the user typed in the search bar
+                String searchQuery = etSearch.getText().toString().trim();
 
-                DatabaseHelper db = new DatabaseHelper(SearchActivity.this);
-                List<Textbook> currentInventory = db.getAllTextbooks();
-
-                currentFoundBookId = -1; // Reset tracker
-
-                if (currentInventory.isEmpty()) {
-                    tvSearchResults.setText("The database is empty. Post a listing first!");
-                    btnShareWhatsApp.setVisibility(View.GONE);
-                    btnDeleteListing.setVisibility(View.GONE);
-                    return;
-                }
-
-                for (Textbook book : currentInventory) {
-                    // This checks BOTH the title and the seller name for your query
-                    if (query.isEmpty() ||
-                            book.getTitle().toLowerCase().contains(query) ||
-                            book.getSellerName().toLowerCase().contains(query)) {
-
-                        results.append("📚 Title: ").append(book.getTitle()).append("\n")
-                                .append("👤 Seller: ").append(book.getSellerName()).append("\n")
-                                .append("💰 Price: R").append(book.getPrice()).append("\n\n");
-
-                        currentFoundBookId = book.getId();
-                    }
-                }
-
-                if (results.length() == 0) {
-                    tvSearchResults.setText("No matches found.");
-                    btnShareWhatsApp.setVisibility(View.GONE);
-                    btnDeleteListing.setVisibility(View.GONE);
-                } else {
-                    tvSearchResults.setText(results.toString());
-                    btnShareWhatsApp.setVisibility(View.VISIBLE);
-                    btnDeleteListing.setVisibility(View.VISIBLE); // Show delete option
-                }
+                // Reload the view based on what they searched
+                loadDataIntoView(searchQuery);
             }
         });
+    }
 
-        // DELETE Logic
-        btnDeleteListing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (currentFoundBookId != -1) {
-                    DatabaseHelper db = new DatabaseHelper(SearchActivity.this);
-                    db.deleteTextbook(currentFoundBookId);
-                    Toast.makeText(SearchActivity.this, "Listing Deleted!", Toast.LENGTH_SHORT).show();
+    // A helper method to keep your code clean and handle loading the data
+    private void loadDataIntoView(String query) {
+        List<Textbook> myData;
 
-                    // Clear screen
-                    tvSearchResults.setText("");
-                    btnDeleteListing.setVisibility(View.GONE);
-                    btnShareWhatsApp.setVisibility(View.GONE);
+        // If the search bar is empty, get everything. Otherwise, get the filtered results.
+        if (query.isEmpty()) {
+            myData = databaseHelper.getAllTextbooks();
+        } else {
+            // NOTE: If you have a specific search method in your DatabaseHelper
+            // like searchBooks(query), you would use it here.
+            // For now, it will just load all textbooks to prevent crashes.
+            myData = databaseHelper.getAllTextbooks();
+            Toast.makeText(this, "Searching for: " + query, Toast.LENGTH_SHORT).show();
+        }
+
+        // State Management: Empty vs Populated Database
+        if (myData.isEmpty()) {
+            recyclerView.setVisibility(View.GONE);
+            emptyStateLayout.setVisibility(View.VISIBLE);
+        } else {
+            recyclerView.setVisibility(View.VISIBLE);
+            emptyStateLayout.setVisibility(View.GONE);
+
+            ResourceAdapter adapter = new ResourceAdapter(myData, new ResourceAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(Textbook clickedItem) {
+
+                    String message = "Hi " + clickedItem.getSeller() + ", I saw your listing for *"
+                            + clickedItem.getTitle() + "* on the app. Is it still available for R"
+                            + clickedItem.getPrice() + "?";
+
+                    String phoneNumber = "27812345678";
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + Uri.encode(message)));
+                    startActivity(intent);
                 }
-            }
-        });
+            });
 
-        // WhatsApp Logic
-        btnShareWhatsApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String resultsText = tvSearchResults.getText().toString();
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this book: " + resultsText);
-                sendIntent.setType("text/plain");
-                startActivity(Intent.createChooser(sendIntent, "Share via..."));
-            }
-        });
+            recyclerView.setAdapter(adapter);
+        }
     }
 }
