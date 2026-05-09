@@ -50,6 +50,17 @@
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
             android:layout_marginTop="4dp"/>
+        <TextView
+            android:id="@+id/tvWhatsApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvSeller"
+            android:layout_toEndOf="@id/tvIcon"
+            android:layout_marginTop="8dp"
+            android:text="💬 Chat with seller"
+            android:textColor="@color/whatsapp_green"
+            android:textStyle="bold"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvPrice"
