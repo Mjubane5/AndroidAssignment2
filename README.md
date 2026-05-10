@@ -64,3 +64,21 @@ This application utilizes a local, on-device SQLite database. No external server
 * *Note: Upon first launch, the SQLite database is automatically seeded with initial group data for immediate demonstration.*
 git clone [https://github.com/Mjubane5/AndroidAssignment2.git](https://github.com/Mjubane5/AndroidAssignment2.git)
 
+## 📸 Application Showcase
+
+| Home Dashboard | Resource Listing | Smart Search & Chat | Detail View |
+|:---:|:---:|:---:|:---:|
+| <img src="Home.jpg" width="200"/> | <img src="add.jpg" width="200"/> | <img src="search.jpg" width="200"/> | <img src="dialog.jpg" width="200"/> |
+
+## 🔮 Future Enhancements
+While the current system fully satisfies the core peer-to-peer textbook exchange requirements, future iterations could include:
+* **In-App Messaging:** Migrating from WhatsApp Intents to a native Firebase real-time chat system.
+* **Image Uploads:** Allowing sellers to upload photos of the textbook's physical condition.
+* **Secure Payment Gateway:** Integrating a sandbox payment API (like PayFast or Yoco) to handle transactions directly within the app rather than relying on manual EFTs.
+
+## ⚙️ Technical Environment
+* **Minimum SDK:** API 24 (Android 7.0 Nougat)
+* **Target SDK:** API 34 (Android 14)
+* **Build System:** Gradle
+* **Database:** SQLite (On-device, local storage)
+
