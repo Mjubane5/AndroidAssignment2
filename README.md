@@ -1,46 +1,66 @@
-# 🎓 UFH Student Resource Hub
-**Module: CSC 313 - Mobile Application Development**
+# 📚 ResourceHub: Peer-to-Peer Textbook Exchange
 
-## 🚨 The Problem Statement
-University students constantly need to exchange academic resources—whether that means buying and selling second-hand textbooks, sharing study guides, or finding peer tutors. However, traditional campus notice boards are outdated, and broad social media groups are cluttered and distracting. Students lack a centralized, localized platform that allows them to quickly find specific academic resources on campus and instantly connect with their peers to organize the exchange. 
+![Java](https://img.shields.io/badge/Language-Java_17+-orange?style=for-the-badge&logo=java)
+![Framework](https://img.shields.io/badge/Framework-Android_SDK-3DDC84?style=for-the-badge&logo=android)
+![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge&logo=sqlite)
+![UI](https://img.shields.io/badge/UI-Material_Design_3-blue?style=for-the-badge&logo=material-design)
 
-## 💡 Project Overview
-The UFH Student Resource Hub is a lightweight, easy-to-use Android application built to solve this communication gap. It acts as a digital campus board where students can list academic materials or study topics. Instead of relying on complex built-in messaging, the app intelligently bridges the gap by routing users directly to WhatsApp, allowing students to seamlessly arrange meetups or resource exchanges using the tools they already use every day.
+## 📖 Project Overview
 
----
-
-## 🚀 Key Features
-*   **Create Resource Listings:** Students can easily post items, topics, or resources they have available, along with essential details.
-*   **Smart Discovery Search:** A built-in search engine allows students to quickly find what they need by searching either the resource name (e.g., "Calculus Textbook") or the student's name.
-*   **One-Click WhatsApp Connection:** When a student finds a resource they need, a single tap packages the information and opens a direct WhatsApp chat with the poster to finalize the details.
-*   **Offline Reliability (Local Storage):** The app uses a local database (SQLite) to safely save all posts and information directly on the phone, meaning it works quickly and remembers data even if the app is closed.
-*   **Easy Inventory Management:** Users can delete or remove listings once an exchange is completed to keep the platform clean and up to date.
+This project is a fully functional, native Android application developed for the **CSC313: Object-Oriented Programming (Assignment 2)** module at the University of Fort Hare. It serves as a decentralized marketplace for university students to buy, sell, and discover textbooks. The application was built from the ground up, prioritizing strict Object-Oriented principles, comprehensive exception handling, and a premium, accessible user interface.
 
 ---
 
-## 👥 Meet the Development Team
+## ✨ Key Features
 
-| Name | Role | What They Did |
-| :--- | :--- | :--- |
-| **Lugayeni** | **Database Lead** | Built the local storage system so the app securely remembers all posts and user data. |
-| **Abahle** | **UI & Logic Developer** | Designed the user interface screens and made sure the app handles user input smoothly. |
-| **Kamva** | **Integration Lead** | Created the search functionality and built the bridge that connects the app directly to WhatsApp. |
-| **Mpilwenhle** | **Quality Assurance (QA)** | Tested the app extensively on real hardware to catch bugs and ensure smooth performance. |
-| **Ovayo** | **Documentation Lead** | Wrote the project report, managed the codebase notes, and structured the final presentation. |
-| **Sisanda** | **Systems Analyst** | Tracked the assignment rubric to ensure every feature perfectly matched the CSC 313 requirements. |
+* **Dynamic Marketplace Browsing:** A seamless `RecyclerView` implementation allowing users to scroll through all available peer-listed textbooks.
+* **Comprehensive Resource Listing:** Users can list new materials by providing granular details, including dynamic stock counts, pricing, category classification, and banking information.
+* **Smart Search & Filtering:** A highly responsive search engine leveraging SQLite `LIKE` queries to instantly filter the database by either the **Book Title** or the **Seller's Name**.
+* **Intelligent Validation & Duplicate Prevention:** Real-time form validation and a custom SQLite duplicate-checker that intercepts and prevents identical listings from the same seller.
+* **Direct WhatsApp Integration:** A frictionless communication bridge utilizing Android `Intents` to instantly generate a pre-formatted WhatsApp message to the seller directly from the application.
+* **Material Design Architecture:** A dark-themed, high-contrast user interface built with Google's Material Components (`TextInputEditText`, `MaterialButton`, `MaterialAlertDialogBuilder`) for a modern UX.
 
 ---
 
-## 🛠️ How It Was Built (The Tech)
-*   **Language:** Java
-*   **Development Environment:** Android Studio
-*   **Data Storage:** SQLite (Local Database)
-*   **External Integration:** Android Implicit Intents (for WhatsApp routing)
+## 🏗️ Object-Oriented Architecture
+
+To satisfy the core academic requirements of CSC313, the system’s architecture heavily utilizes advanced Java OOP paradigms:
+
+* **Encapsulation & Modularity:** Clean separation of concerns between the View (XML), Controllers (Activities), and Data Models (`Textbook.java`).
+* **Exception Handling:** Robust `try-catch` blocks surrounding numerical parsing (Price, Copies) and database transactions to prevent application crashes and ensure data integrity.
+* **Abstraction & Interfaces:** Engineered for scalable inventory management using core OOP structural design patterns.
 
 ---
 
-## ⚙️ How to Run the App
-1. Download or clone the project folder to your computer.
-2. Open the folder using **Android Studio**.
-3. Let the system sync and build the files.
-4. Press "Run" to launch the application on an Android emulator or a connected physical phone.
+## 🤝 The Development Team
+
+This system was engineered collaboratively using a highly structured Git feature-branch workflow. 
+
+* **Mpilwenhle Jubane** - Project Lead, Application Architecture, and UI Overhaul.
+* **Lugayeni Anele** - Database Architecture (SQLite Schema & CRUD operations).
+* **Kamva Fetumani** - Search Engine Logic and WhatsApp `Intent` Integration.
+* **Ovayo Kani** - Data Validation, Exception Handling, and Duplicate Checking Logic.
+* **Abahle Mati** - UI Layout Design and Add Resource implementations.
+* **Sisanda Gcuma** - Systems Analysis and Material Dialog View integrations.
+
+
+---
+
+## 🚀 Quick Start Guide
+
+This application utilizes a local, on-device SQLite database. No external server configuration or database installation is required.
+
+**1. Clone the repository:**
+`git clone https://github.com/Mjubane5/AndroidAssignment2.git`
+
+**2. Open in Android Studio:**
+* Launch Android Studio.
+* Select **File > Open** and navigate to the cloned directory.
+* Wait for the Gradle sync to complete.
+
+**3. Build and Run:**
+* Ensure an Android Emulator (API 24+) is running, or connect a physical Android device via USB debugging.
+* Click the **Run 'app'** (Green Play Button) in the top toolbar.
+* *Note: Upon first launch, the SQLite database is automatically seeded with initial group data for immediate demonstration.*
+git clone [https://github.com/Mjubane5/AndroidAssignment2.git](https://github.com/Mjubane5/AndroidAssignment2.git)
+
