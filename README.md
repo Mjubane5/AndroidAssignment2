@@ -7,7 +7,9 @@
 
 ## 📖 Project Overview
 
-This project is a fully functional, native Android application developed for the **CSC313: Object-Oriented Programming (Assignment 2)** module at the University of Fort Hare. It serves as a decentralized marketplace for university students to buy, sell, and discover textbooks. The application was built from the ground up, prioritizing strict Object-Oriented principles, comprehensive exception handling, and a premium, accessible user interface.
+ResourceHub is a fully functional, native Android application engineered to serve as a decentralized peer-to-peer marketplace for students to securely buy, sell, and discover textbooks.
+
+Built from the ground up using Java 17+ and the Android SDK, the core architecture prioritizes strict Object-Oriented Design (OOD) principles, comprehensive exception handling, and seamless SQLite data persistence, all wrapped in a highly responsive Material Design 3 user interface..
 
 ---
 
